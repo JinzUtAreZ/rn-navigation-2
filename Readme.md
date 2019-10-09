@@ -13,6 +13,10 @@ npm install -g expo-cli
 npm i --package-lock-only
 
 use safe install "expo install" kapag may error using npm install
+press ctrl + K (release) press S (to save all files)
+
+Syntax Reminder: walang {state.meals.meals} kapag ung hook na
+useSelector(state => state.meals.meals)
 
 1. expo init "Name of file"
 2. npm install --save expo-font
@@ -29,5 +33,6 @@ use safe install "expo install" kapag may error using npm install
 7. npm install --save react-navigation-header-buttons
 8. npm install --save @expo/vector-icons
 9. npm install --save react-navigation-material-bottom-tabs
+10. npm install --save redux react-redux
 
 watch new circle-cli https://www.youtube.com/watch?v=Qp-BA9e0TnA&feature=youtu.be
