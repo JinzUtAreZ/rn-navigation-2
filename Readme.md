@@ -35,4 +35,6 @@ useSelector(state => state.meals.meals)
 9. npm install --save react-navigation-material-bottom-tabs
 10. npm install --save redux react-redux
 
+https://academind.com/learn/react/redux-vs-context-api/
+
 watch new circle-cli https://www.youtube.com/watch?v=Qp-BA9e0TnA&feature=youtu.be

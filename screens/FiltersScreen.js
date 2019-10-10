@@ -6,6 +6,9 @@ import HeaderButton from '../components/HeaderButton';
 import Colors from '../constants/Colors';
 import { Platform } from '@unimodules/core';
 
+import { useDispatch } from 'react-redux';
+import { setFilters } from '../store/actions/mealsAction';
+
 const FilterSwitch = props => {
   return (
     <View style={styles.filterContainer}>
@@ -23,20 +26,23 @@ const FilterSwitch = props => {
 const FiltersScreen = props => {
   const { navigation } = props;
 
-  const [isGluten, setIsGluten] = useState(false);
-  const [isLactose, setIsLactose] = useState(false);
+  const [isGlutenFree, setIsGluten] = useState(false);
+  const [isLactoseFree, setIsLactose] = useState(false);
   const [isVegan, setIsVegan] = useState(false);
   const [isVegetarian, setIsVegetarian] = useState(false);
 
+  const dispatch = useDispatch();
+
   const saveFilters = useCallback(() => {
     const appliedFilters = {
-      gluten: isGluten,
-      lactose: isLactose,
+      glutenFree: isGlutenFree,
+      lactoseFree: isLactoseFree,
       vegan: isVegan,
       vegeterian: isVegetarian
     };
-    console.log(appliedFilters);
-  }, [isGluten, isLactose, isVegan, isVegetarian]);
+    //console.log(appliedFilters);
+    dispatch(setFilters(appliedFilters));
+  }, [isGlutenFree, isLactoseFree, isVegan, isVegetarian, dispatch]);
 
   useEffect(() => {
     navigation.setParams({ save: saveFilters });
@@ -47,12 +53,12 @@ const FiltersScreen = props => {
       <Text style={styles.title}>Available Filters / Restriction</Text>
       <FilterSwitch
         label="Gluten-free"
-        state={isGluten}
+        state={isGlutenFree}
         onChange={newValue => setIsGluten(newValue)}
       />
       <FilterSwitch
         label="Lactose-free"
-        state={isLactose}
+        state={isLactoseFree}
         onChange={newValue => setIsLactose(newValue)}
       />
       <FilterSwitch
